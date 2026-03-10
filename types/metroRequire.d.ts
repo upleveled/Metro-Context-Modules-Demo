@@ -1,8 +1,7 @@
 // Based on https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/webpack-env/index.d.ts
-// Adds support for the runtime `require.context` method.
-// https://github.com/facebook/metro/pull/822/
-
-declare var module: NodeModule;
+// Add types for the runtime `require.context` method
+// - https://github.com/facebook/metro/pull/822
+// - https://github.com/facebook/react-native/pull/41421
 
 declare namespace __MetroModuleApi {
   interface RequireContext {
@@ -37,7 +36,7 @@ declare namespace __MetroModuleApi {
       path: string,
       recursive?: boolean,
       filter?: RegExp,
-      mode?: "sync" | "eager" | "weak" | "lazy" | "lazy-once"
+      mode?: 'sync' | 'eager' | 'weak' | 'lazy' | 'lazy-once',
     ): RequireContext;
   }
 }
@@ -48,4 +47,4 @@ declare namespace __MetroModuleApi {
 declare namespace NodeJS {
   interface Require extends __MetroModuleApi.RequireFunction {}
 }
-declare var process: NodeJS.Process;
+declare const process: NodeJS.Process;
